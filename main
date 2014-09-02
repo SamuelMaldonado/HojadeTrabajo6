@@ -1,7 +1,9 @@
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.Set;
-
+import java.util.Scanner;
+import java.util.TreeSet;
 
 public class Main {
 	//Inteface Set: no permite duplicaciones
@@ -9,20 +11,195 @@ public class Main {
 			//HashSet: no tiene un orden predecible
 			//LinkedHashSet: en el orden en que fueron ingresados
 	
-	
+			
 	public static void main(String[] args) {
-		Set<Persona> set = new HashSet<Persona>();
-		Persona a= new Persona ("Ricardo", "Desarrollador web");
-		Persona b= new Persona ("Samuel", "Desarrollador web");
-		Persona c= new Persona ("juan", "Desarrollador web");
-		set.add(a);
-		a.nombre="bob";
-		set.add(b);
-		set.add(c);
-		for(Iterator <Persona> iterator=set.iterator(); iterator.hasNext();){
-			Persona P = iterator.next();
-			System.out.println(P.nombre);
+	
+		//pidiendo el tipo de implementacion que desea usar
+		System.out.println ("           ...: Bienvenido Programador:...");	//saludo al usuario
+		System.out.println ("Por favor introduzca el tipo de implementacion SET que desea usar:");	//pido al usuario su eleccion
+	    String tipo = "";																			//creo la variable para guardar el dato
+	    Scanner entrada = new Scanner (System.in); 													//Creación de un objeto Scanner
+	    tipo = entrada.nextLine (); 
+		while(!tipo.equals("hashset") && !tipo.equals("treeset") && !tipo.equals("linkedhashset")){
+			System.out.println ("Por favor introduzca el tipo de implementacion SET que desea usar:");	//pido al usuario su eleccion
+		    tipo = "";																			//creo la variable para guardar el dato
+		    entrada = new Scanner (System.in); 													//Creación de un objeto Scanner
+		    tipo = entrada.nextLine (); 
+				
 		}
+		
+		
+		//numero de personas a ingresar
+		System.out.println ("Ingrese el numero de personas a ingresar:");							//se ingresa el numero de personas a ingresar
+	    String  numero = "";																			//creo la variable para guardar el dato
+	    entrada = new Scanner (System.in); 													//Creación de un objeto Scanner
+	    numero = entrada.nextLine (); 
+		
+	  //creando los objetos para los conjuntos
+	  		Set<String> programadoresWeb = null;				//creando un generico para las 3 implementaciones
+	  		Set<String> programadoresJava = null;				//creando un generico para las 3 implementaciones
+	  		Set<String> programadoresCelular = null;			//creando un generico para las 3 implementaciones 
+	  		
+	  		Set<String> pregunta1 = null;						//creando las listas para dar la respuesta
+	  		Set<String> pregunta2 = null ;						//creando las listas para dar la respuesta
+	  		Set<String> pregunta3 = null;						//creando las listas para dar la respuesta
+	  		Set<String> pregunta4 = null;						//creando las listas para dar la respuesta
+	  		Set<String> pregunta5 = null;						//creando las listas para dar la respuesta
+	  		Set<String> pregunta6 = null;						//creando las listas para dar la respuesta
+	  		
+	  	    Factory eleccion= new Factory();			//creando el objeto factory
+	  	  programadoresWeb=eleccion.getImplementacion(tipo);		//definiendo todas los grupos del mismo tipo
+	  	    programadoresJava=eleccion.getImplementacion(tipo);
+	  	    programadoresCelular=eleccion.getImplementacion(tipo);
+	  	    
+	  	    //definiendo los grupas para dar las respuestas a las preguntas del rubrica
+	  	    pregunta1=eleccion.getImplementacion(tipo);
+	  	    pregunta2=eleccion.getImplementacion(tipo);
+	  	    pregunta3=eleccion.getImplementacion(tipo);
+	  	    pregunta4=eleccion.getImplementacion(tipo);
+	  	    pregunta5=eleccion.getImplementacion(tipo);
+	  	    pregunta6=eleccion.getImplementacion(tipo);
+	  	    
+	  	    
+	  	    
+	  	    programadoresCelular=eleccion.getImplementacion(tipo);
+	  	    programadoresCelular=eleccion.getImplementacion(tipo);
+	  	    programadoresCelular=eleccion.getImplementacion(tipo);
+	  	    
+	    //numero de ingresos
+	  	
+	    int cont=0;
+		while (cont<Integer.parseInt(numero)){
+			cont=cont+1;
+	    //pidiendo datos
+	    System.out.println ("Ingrese su nombre:");													//pido al usuario su nombre
+	    String nombre = "";																			//creo la variable para guardar el dato
+	    entrada = new Scanner (System.in); 															//Creación de un objeto Scanner
+	    nombre = entrada.nextLine (); 
+	    
+	  //pidiendo datos
+	    System.out.println ("Ingrese WEB pertenece al grupo de: Desarrollador WEB:");	//pido al usuario su tipo de grupo
+	    String trabajo1 = "";																			//creo la variable para guardar el dato
+	    entrada = new Scanner (System.in); 													//Creación de un objeto Scanner
+	    trabajo1 = entrada.nextLine (); 
+	    while (!trabajo1.equals("NO") && !trabajo1.equals("WEB")){
+			  //pidiendo datos
+		    System.out.println ("Ingrese WEB pertenece al grupo de: Desarrollador WEB de lo contrario ingres NO");	//pido al usuario su tipo de grupo
+		    trabajo1 = "";																			//creo la variable para guardar el dato
+		    entrada = new Scanner (System.in); 													//Creación de un objeto Scanner
+		    trabajo1 = entrada.nextLine (); 
+		    
+		    	
+	    }
+		  //pidiendo datos
+	    System.out.println ("Ingrese JAVA pertenece al grupo de: Desarrollador JAVA:");	//pido al usuario su tipo de grupo
+	    String trabajo2 = "";																			//creo la variable para guardar el dato
+	    entrada = new Scanner (System.in); 													//Creación de un objeto Scanner
+	    trabajo2 = entrada.nextLine (); 
+	    while (!trabajo2.equals("NO") && !trabajo2.equals("JAVA")){
+			  //pidiendo datos
+		    System.out.println ("Ingrese JAVApertenece al grupo de: Desarrollador JAVA de lo contrario ingres NO");	//pido al usuario su tipo de grupo
+		    trabajo2 = "";																			//creo la variable para guardar el dato
+		    entrada = new Scanner (System.in); 													//Creación de un objeto Scanner
+		    trabajo2 = entrada.nextLine (); 
+		    
+		    	
+	    }
+	    
+		  //pidiendo datos
+	    System.out.println ("Ingrese CELULAR pertenece al grupo de: Desarrollador CELULAR:");	//pido al usuario su tipo de grupo
+	    String trabajo3 = "";																			//creo la variable para guardar el dato
+	    entrada = new Scanner (System.in); 													//Creación de un objeto Scanner
+	    trabajo3 = entrada.nextLine (); 
+	    
+	    
+	    
+	    while (!trabajo3.equals("NO") && !trabajo3.equals("CELULAR")){
+			  //pidiendo datos
+		    System.out.println ("Ingrese CELULAR pertenece al grupo de: Desarrollador CELULAR de lo contrario ingres NO");	//pido al usuario su tipo de grupo
+		    trabajo3 = "";																			//creo la variable para guardar el dato
+		    entrada = new Scanner (System.in); 													//Creación de un objeto Scanner
+		    trabajo3 = entrada.nextLine (); 
+		    
+		    	
+	    }
+	  
+	   
+  	    
+	    //comparaciones para los conjuntos o grupos
+  		
+		if (trabajo1.equals("WEB")){		      			//se compara la eleccion hecha por el usuario
+			programadoresWeb.add(nombre);				//se guarda en el conjunto
+			
+		}
+			
+		if (trabajo3.equals("CELULAR")){					//se se compara la eleccion hecha por el usuario
+			programadoresCelular.add(nombre);				//se guarda en el conjunto
+			
+		}
+		
+		if (trabajo2.equals("JAVA")){            		 //se se compara la eleccion hecha por el usuario
+			programadoresJava.add(nombre);			//se guarda en el conjunto
+			
+		}	   
+		
+		}
+		
+		//pregunta1: se muestran las intersecciones
+		pregunta1.addAll(programadoresWeb);
+		pregunta1.retainAll(programadoresCelular);
+		pregunta1.retainAll(programadoresJava);
+		System.out.println("Iterseccipon entre los 3 conjuntos: "+pregunta1);
+		
+		//pregunta2: se muestra los trabajadores en java y no en web
+		pregunta2.addAll(programadoresJava);
+		pregunta2.removeAll(programadoresWeb);
+		System.out.println("Trabajadores en Java pero no Web: "+pregunta2);
+		
+		//pregunta3: web y celulares, pero no java
+		pregunta3.addAll(programadoresWeb);
+		pregunta3.retainAll(programadoresCelular);
+		pregunta3.removeAll(programadoresJava);
+		System.out.println("Trabajadores en Java pero no Web: "+pregunta3);
+		
+		//pregunta4: web o celulares pero no java
+		pregunta4.addAll(programadoresCelular);
+		pregunta4.addAll(programadoresWeb);
+		pregunta4.removeAll(programadoresJava);
+		System.out.println("Trabajadores en web o celulares, pero no en java: "+pregunta4);
+		
+		//pregunta5: es subconjunto java de web
+		boolean contiene= programadoresJava.containsAll(programadoresWeb);
+		if (contiene==true){
+			System.out.println("Java si contiene a los programadores Web, Si lo contiene!");
+		}else{
+			System.out.println("Java No contiene a los programadores Web, No lo contiene!");
+		}
+		
+		//pregunta6: catidad más grande desarrolladores y sus nombre
+		int tamaño1= programadoresJava.size();
+		int tamaño2= programadoresCelular.size();
+		int tamaño3= programadoresWeb.size();
+		String es="";
+		if (tamaño1>tamaño2 && tamaño1>tamaño3){
+			System.out.println("Java tiene la cantidad mas grande de desarrolladores"+ programadoresJava);
+			pregunta6.addAll(programadoresJava);
+			es="Java";
+		}if (tamaño2>tamaño1 && tamaño2> tamaño3){
+			System.out.println("Celular tiene la cantidad mas grande de desarrolladores"+ programadoresCelular);
+			pregunta6.addAll(programadoresCelular);
+			es="Celular";
+		}else{
+			System.out.println("Web tiene la cantidad mas grande de desarrolladores"+ programadoresWeb);
+			pregunta6.addAll(programadoresWeb);
+			es= "WEB";
+		}
+		
+		//pregunta7: cantidad mayor y en orden ascendente
+		Set ascendente= new TreeSet(pregunta6);
+		System.out.println("la cantidad mas grande de desarrolladores es: "+es+ ascendente);
+		
 	}
+
 
 }
