@@ -1,3 +1,16 @@
+
+/**
+   * Main.java 
+   *
+   * Universidad del Valle de Guatemala.
+   * Seccion: 30 Estructura de Datos
+   * autor: Samuel Maldonado, 13153
+   * autor: Ricardo Franco, 13261
+   * Programa principal de la hoja de trabajo 6
+   * 
+   *
+   */
+
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
